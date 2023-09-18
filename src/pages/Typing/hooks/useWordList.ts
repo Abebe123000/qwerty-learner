@@ -32,8 +32,8 @@ export function useWordList(): UseWordListResult {
     const newWords = isFirstChapter
       ? firstChapter
       : wordList
-      ? wordList.slice(currentChapter * CHAPTER_LENGTH, (currentChapter + 1) * CHAPTER_LENGTH)
-      : []
+        ? wordList.slice(currentChapter * CHAPTER_LENGTH, (currentChapter + 1) * CHAPTER_LENGTH)
+        : []
 
     // 记录原始 index
     return newWords.map((word, index) => ({ ...word, index }))
@@ -43,29 +43,167 @@ export function useWordList(): UseWordListResult {
 }
 
 const firstChapter = [
-  { name: 'cancel', trans: ['取消， 撤销； 删去'], usphone: "'kænsl", ukphone: "'kænsl" },
-  { name: 'explosive', trans: ['爆炸的； 极易引起争论的', '炸药'], usphone: "ɪk'splosɪv; ɪk'splozɪv", ukphone: "ɪk'spləusɪv" },
-  { name: 'numerous', trans: ['众多的'], usphone: "'numərəs", ukphone: "'njuːmərəs" },
-  { name: 'govern', trans: ['居支配地位， 占优势', '统治，治理，支配'], usphone: "'ɡʌvɚn", ukphone: "'gʌvn" },
-  { name: 'analyse', trans: ['分析； 分解； 解析'], usphone: "'æn(ə)laɪz", ukphone: "'ænəlaɪz" },
-  { name: 'discourage', trans: ['使泄气， 使灰心； 阻止， 劝阻'], usphone: "dɪs'kɝɪdʒ", ukphone: "dɪs'kʌrɪdʒ" },
-  { name: 'resemble', trans: ['像， 类似于'], usphone: "rɪ'zɛmbl", ukphone: "rɪ'zembl" },
   {
-    name: 'remote',
-    trans: ['遥远的； 偏僻的； 关系疏远的； 脱离的； 微乎其微的； 孤高的， 冷淡的； 遥控的'],
-    usphone: "rɪ'mot",
-    ukphone: "rɪ'məut",
+    "name": "cancel",
+    "trans": [
+      "to decide that something that was officially planned will not happen"
+    ],
+    "usphone": "'kænsl",
+    "ukphone": "'kænsl"
   },
-  { name: 'salary', trans: ['薪金， 薪水'], usphone: "'sæləri", ukphone: "'sæləri" },
-  { name: 'pollution', trans: ['污染， 污染物'], usphone: "pə'luʃən", ukphone: "pə'luːʃn" },
-  { name: 'pretend', trans: ['装作， 假装'], usphone: "prɪ'tɛnd", ukphone: "prɪ'tend" },
-  { name: 'kettle', trans: ['水壶'], usphone: "'kɛtl", ukphone: "'ketl" },
-  { name: 'wreck', trans: ['失事；残骸；精神或身体已垮的人', '破坏'], usphone: 'rɛk', ukphone: 'rek' },
-  { name: 'drunk', trans: ['醉的； 陶醉的'], usphone: 'drʌŋk', ukphone: 'drʌŋk' },
-  { name: 'calculate', trans: ['计算； 估计； 计划'], usphone: "'kælkjulet", ukphone: "'kælkjuleɪt" },
-  { name: 'persistent', trans: ['坚持的， 不屈不挠的； 持续不断的； 反复出现的'], usphone: "pə'zɪstənt", ukphone: "pə'sɪstənt" },
-  { name: 'sake', trans: ['缘故， 理由'], usphone: 'sek', ukphone: 'seɪk' },
-  { name: 'conceal', trans: ['把…隐藏起来， 掩盖， 隐瞒'], usphone: "kən'sil", ukphone: "kən'siːl" },
-  { name: 'audience', trans: ['听众， 观众， 读者'], usphone: "'ɔdɪəns", ukphone: "'ɔːdiəns" },
-  { name: 'meanwhile', trans: ['与此同时'], usphone: "'minwaɪl", ukphone: "'miːnwaɪl" },
+  {
+    "name": "explosive",
+    "trans": [
+      "able or likely to explode",
+      "a substance that can cause an explosion"
+    ],
+    "usphone": "ɪk'splosɪv; ɪk'splozɪv",
+    "ukphone": "ɪk'spləusɪv"
+  },
+  {
+    "name": "numerous",
+    "trans": [
+      "many"
+    ],
+    "usphone": "'numərəs",
+    "ukphone": "'njuːmərəs"
+  },
+  {
+    "name": "govern",
+    "trans": [
+      null,
+      "to officially and legally control a country and make all the decisions about taxes, laws, public services etc"
+    ],
+    "usphone": "'ɡʌvɚn",
+    "ukphone": "'gʌvn"
+  },
+  {
+    "name": "analyse",
+    "trans": [
+      "to examine or think about something carefully, in order to understand it"
+    ],
+    "usphone": "'æn(ə)laɪz",
+    "ukphone": "'ænəlaɪz"
+  },
+  {
+    "name": "discourage",
+    "trans": [
+      "to make someone less confident or less willing to do something"
+    ],
+    "usphone": "dɪs'kɝɪdʒ",
+    "ukphone": "dɪs'kʌrɪdʒ"
+  },
+  {
+    "name": "resemble",
+    "trans": [
+      "to look like or be similar to someone or something"
+    ],
+    "usphone": "rɪ'zɛmbl",
+    "ukphone": "rɪ'zembl"
+  },
+  {
+    "name": "remote",
+    "trans": [
+      "far from towns or other places where people live"
+    ],
+    "usphone": "rɪ'mot",
+    "ukphone": "rɪ'məut"
+  },
+  {
+    "name": "salary",
+    "trans": [
+      "money that you receive as payment from the organization you work for, usually paid to you every month"
+    ],
+    "usphone": "'sæləri",
+    "ukphone": "'sæləri"
+  },
+  {
+    "name": "pollution",
+    "trans": [
+      "the process of making air, water, soil etc dangerously dirty and not suitable for people to use, or the state of being dangerously dirty"
+    ],
+    "usphone": "pə'luʃən",
+    "ukphone": "pə'luːʃn"
+  },
+  {
+    "name": "pretend",
+    "trans": [
+      "to behave as if something is true when in fact you know it is not, in order to deceive people or for fun"
+    ],
+    "usphone": "prɪ'tɛnd",
+    "ukphone": "prɪ'tend"
+  },
+  {
+    "name": "kettle",
+    "trans": [
+      "a container with a lid, a handle, and a spout,used for boiling and pouring water"
+    ],
+    "usphone": "'kɛtl",
+    "ukphone": "'ketl"
+  },
+  {
+    "name": "wreck",
+    "trans": [
+      "a ship that has sunk",
+      "to completely spoil something so that it cannot continue in a successful way"
+    ],
+    "usphone": "rɛk",
+    "ukphone": "rek"
+  },
+  {
+    "name": "drunk",
+    "trans": [
+      "unable to control your behaviour, speech etc because you have drunk too much alcohol"
+    ],
+    "usphone": "drʌŋk",
+    "ukphone": "drʌŋk"
+  },
+  {
+    "name": "calculate",
+    "trans": [
+      "to find out how much something will cost, how long something will take etc, by using numbers"
+    ],
+    "usphone": "'kælkjulet",
+    "ukphone": "'kælkjuleɪt"
+  },
+  {
+    "name": "persistent",
+    "trans": [
+      "continuing to exist or happen, especially for longer than is usual or desirable"
+    ],
+    "usphone": "pə'zɪstənt",
+    "ukphone": "pə'sɪstənt"
+  },
+  {
+    "name": "sake",
+    "trans": [
+      "in order to help, improve, or please someone or something"
+    ],
+    "usphone": "sek",
+    "ukphone": "seɪk"
+  },
+  {
+    "name": "conceal",
+    "trans": [
+      "to hide something carefully"
+    ],
+    "usphone": "kən'sil",
+    "ukphone": "kən'siːl"
+  },
+  {
+    "name": "audience",
+    "trans": [
+      "a group of people who come to watch and listen to someone speaking or performing in public"
+    ],
+    "usphone": "'ɔdɪəns",
+    "ukphone": "'ɔːdiəns"
+  },
+  {
+    "name": "meanwhile",
+    "trans": [
+      "while something else is happening"
+    ],
+    "usphone": "'minwaɪl",
+    "ukphone": "'miːnwaɪl"
+  }
 ]
